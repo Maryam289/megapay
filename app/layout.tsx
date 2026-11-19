@@ -28,7 +28,7 @@ const aclonica = Aclonica({
 export const metadata: Metadata = {
   title: "MegaPay",
   description: "Your documents and international financial services in one place.",
-  icons: '/icons/logo.png'
+  icons: '/icons/logo-removebg.png'
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

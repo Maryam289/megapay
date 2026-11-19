@@ -1,20 +1,150 @@
 @import "tailwindcss";
 
+* {
+  /* 	إزالة المسافات الخارجية الافتراضية */
+  margin: 0;
+  /* حساب العرض والارتفاع مع الـ Padding والـ Border */
+  box-sizing: border-box;
+}
+
+ /* بيخفي شريط التمرير في Firefox */
+ /* -ms-overflow-style خاص بمتصفحات Microsoft القديمة */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* بيستهدف شريط التمرير في Chrome وEdge وSafari */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.custom-scrollbar::-webkit-scrollbar{
+  width: 3px;
+  height: 3px;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #dddddd;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb{
+  background: #5c5c5c;
+  border-radius: 70px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover{
+  background: #7878a3;
+}
+
+@layer utilities {
+  .input-class {
+    @apply text-[16px] placeholder:text-[16px] rounded-lg border 
+    border-gray-300 text-gray-500 placeholder:text-gray-500;
+  }
+
+  /* علامة ! معناها Important */
+  /* نستخدم !important عشان نقول للمتصفح: نفّذ القاعدة دي بأولوية أعلى من قواعد CSS العادية المتعارضة معاها */
+  .sheet-content button {
+    @apply focus:ring-0 focus-visible:ring-transparent focus:ring-offset-0
+    focus-visible:ring-offset-0 focus-visible:outline-none focus-visible:border-none!;
+  }
+
+  .text14_padding10 {
+    @apply text-[14px] px-4 py-2.5 font-semibold;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .header-2{
+    @apply text-[20px] font-bold text-white;
+  }
+
+  .header-box-balance{
+    @apply rounded-[15px] w-full;
+    background-image:linear-gradient(to right, #07AA81, #04775C);
+    padding-left: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .home {
+    /* @apply دي خاصية في Tailwind تسمح لك تستخدمي Classes جاهزة داخل CSS. */
+    @apply flex w-full flex-row 
+    max-xl:max-h-screen max-xl:overflow-y-scroll;
+    scrollbar-width: none;
+  }
+
+  .home::-webkit-scrollbar{
+    display: none;
+  }
+
+  .home-content {
+    @apply flex w-full flex-1 flex-col gap-8 px-5
+    sm:px-8 py-7 lg:py-12 xl:max-h-screen xl:overflow-y-scroll;
+    scrollbar-width: none;
+  }
+
+  .home-content::-webkit-scrollbar{
+    display: none;
+  }
+
+  /* Greeting Header */
+  .home-header { 
+    @apply flex flex-col justify-between gap-8;
+  }
+
+  .total-balance {
+    @apply flex w-full items-center gap-2 rounded-xl border border-gray-600 p-2 shadow-lg sm:gap-2 sm:p-2 ; 
+  }
+
+  .total-balance-chart {
+    @apply flex size-full max-w-[100px] items-center sm:max-w-[120px];
+  }
+
+  .total-balance-label {
+    @apply text-[14] font-medium text-white;
+  }
+
+  .total-balance-amount {
+    @apply text-[24] lg:text-[30] flex-1 font-semibold text-white;
+  }
+
+  .table-header-group{
+    @apply text-[14] font-thin text-gray-400;
+  }
+
+}
+
+
+
 /* MegaPay Design System */
 
 @theme {
   /* Brand Colors */
-  --color-primary: #0B2341;
-  --color-secondary: #16A36A;
+  /* الخلفية الأساسية */
+  --color-primary: #04775C;
+  /* الخلفية الخضراء */
+  --color-secondary: #069370;
   --color-accent: #20C997;
 
   /* Background Colors */
   --color-background: #FFFFFF;
+  /* 	خلفية الكروت */
   --color-surface: #F5F7FA;
 
   /* Text Colors */
-  --color-text-primary: #172B4D;
-  --color-text-secondary: #64748B;
+  --color-text-primary: #069370;
+  --color-text-secondary: #77837E;
 
   /* Responsive Screens */
   --breakpoint-xs: 480px;
@@ -23,4 +153,6 @@
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
+
+  --header-box-background: #04775C;
 }  

@@ -14,3 +14,21 @@ declare type SingUpParams = {
     password: string;
     confirmPassword: string;
 }
+
+declare interface HeaderBoxProps {
+    type?: "title" | "greeting" | "inter";
+    title: string;
+    user?: string;
+    subtext: string;
+}
+
+declare interface TotalBalanceBoxProps {
+    accounts?: [];
+    totalBanks?: number;
+    totalCurrentBalance: number;
+
+}
+
+declare interface DoughnutChartProps {
+    accounts?: [];
+}

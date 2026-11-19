@@ -23,22 +23,32 @@ export const fromatDataTime = (dateString: Date) => {
 //  * Format monetary values.
 //  * Example: formatCurrency(1500, "EGP")
 //  * Example: formatCurrency(5000, "RUB")
-export function formatCurrency(
-  amount: number,
-  currency: string,
-  locale: string = "en-US"
-): string {
-  if (!Number.isFinite(amount)) return "—";
+// export function formatCurrency(
+//   amount: number,
+//   currency: string,
+//   locale: string = "en-US"
+// ): string {
+//   if (!Number.isFinite(amount)) return "—";
 
-  try {
-    return new Intl.NumberFormat(locale, {
-      style: "currency",
-      currency,
-      maximumFractionDigits: 2,
-    }).format(amount);
-  } catch {
-    return `${amount} ${currency}`;
-  }
+//   try {
+//     return new Intl.NumberFormat(locale, {
+//       style: "currency",
+//       currency,
+//       maximumFractionDigits: 2,
+//     }).format(amount);
+//   } catch {
+//     return `${amount} ${currency}`;
+//   }
+// }
+
+export function formatCurrency(amount: number): string {
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "RUB",
+    minimumFractionDigits: 2,
+  });
+  return formatter.format(amount);
+  
 }
 
 

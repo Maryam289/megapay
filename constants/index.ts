@@ -27,7 +27,7 @@ export const TEST_ACCESS_TOKEN =
 "access-sandbox-657429de-98lo-02q6-0ax6-edh9fs2n3r48";
 
 
-export const Items = [
+export const ITEMS = [
   {
     id: "item_001",
     accessToken: "mp_test_access_token_001",
