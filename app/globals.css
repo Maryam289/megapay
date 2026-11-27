@@ -66,7 +66,7 @@
   }
 
   .header-2{
-    @apply text-[20px] font-bold text-white;
+    @apply text-[20px] font-semibold text-gray-950;
   }
 
   .header-box-balance{
@@ -123,6 +123,176 @@
     @apply text-[14] font-thin text-gray-400;
   }
 
+  .sidebar {
+    @apply sticky left-0 top-0 flex h-screen w-fit flex-col justify-between border-r border-gray-400 bg-white
+    pt-8 text-white max-md:hidden sm:p-4 xl:p-6 2xl:w-[355px];
+  }
+
+  .sidebar-link { 
+    @apply flex gap-3 items-center py-1 md:p-3
+    2xl:p-4 rounded-lg justify-center xl:justify-start;
+  }
+
+  .sidebar-link-active {
+    background-color: #EAF6F1;
+  }
+
+  .sidebar-label {
+    @apply text-[16px] font-semibold text-gray-500 max-xl:hidden;
+  }
+  .sidebar-label-active {
+    color: #058562;
+  }
+
+  .sidebar-dot {
+    @apply size-2 rounded-full;
+    background-color: #058562;
+  }
+
+  .sidebar-icon {
+    @apply object-contain;
+  }
+
+  .sidebar-icon-active{
+    filter: brightness(0) saturate(100%)
+    invert(40%) sepia(80%) saturate(400%)
+    hue-rotate(115deg);
+  }
+
+  .root-layout{
+    @apply flex h-16 items-center justify-between p-5;
+  }
+
+  .mobilenav-sheet{
+    @apply w-full;
+  }
+
+  .mobilenav-sheet_close{
+    @apply flex gap-3 items-center p-4 rounded-lg px-4 py-3; 
+  }
+
+  .right-sidebar {
+    @apply hidden h-screen max-h-screen flex-col border-gray-200 xl:flex w-[355px] xl:overflow-y-scroll;
+    scrollbar-width: none;
+  }
+
+  .profile-banner{
+    @apply h-[120px] w-full bg-gradient-background bg-cover bg-no-repeat;
+  }
+
+  .profile {
+    @apply relative flex px-6 max-xl:justify-center;
+  }
+  
+  .profile-img{
+    @apply flex items-center justify-center absolute -top-8 size-24
+    rounded-full bg-gray-200 border-white p-2 shadow-profile;
+  }
+
+  .profile-details {
+    @apply flex flex-col pt-24;
+  }
+
+  .profile-name{
+    @apply text-[24px] font-semibold text-gray-900;
+  }
+
+  .profile-email {
+    @apply text-[16px] font-normal text-gray-600;
+  }
+
+  .banks {
+    @apply flex flex-col justify-between gap-8 px-6 py-8;
+  }
+
+  .bank-card{
+    @apply relative flex h-[190px] w-full max-w-[320px] min-w-[320px]
+    justify-between rounded-[20px] border border-white/20
+    shadow-credit-card;
+    overflow: hidden;
+    isolation: isolate;
+    background-image: radial-gradient(
+      circle at 85% 15%,
+      rgba(32, 201, 151, 0.3),
+      transparent 35%
+    ),
+    linear-gradient(
+      125deg,
+      #063f35 0%, #075c48 48%, #042f29 100%
+    );
+  }
+
+
+  .bank-card-content {
+    @apply relative flex size-full max-w-[320px] rounded-l-[20px]
+    flex-col justify-between pb-4 pt-5 px-5;
+    z-index: 1;
+    background: transparent;
+  }
+
+  .bank-card::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  right: -80px;
+  top: -100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 0 20px rgba(255, 255, 255, 0.03),
+    0 0 0 40px rgba(255, 255, 255, 0.025),
+    0 0 0 60px rgba(255, 255, 255, 0.02);
+
+  pointer-events: none;
+}
+
+.bank-card::after {
+  content: "";
+  position: absolute;
+  right: 24px;
+  bottom: 88px;
+  width: 42px;
+  height: 32px;
+  border-radius: 6px;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      transparent 48%,
+      rgba(120, 90, 40, 0.35) 49%,
+      rgba(120, 90, 40, 0.35) 51%,
+      transparent 52%
+    ),
+    linear-gradient(
+      0deg,
+      transparent 48%,
+      rgba(120, 90, 40, 0.35) 49%,
+      rgba(120, 90, 40, 0.35) 51%,
+      transparent 52%
+    ),
+    linear-gradient(
+      135deg,
+      #E5D4A5,
+      #B99A59,
+      #F1E3BC
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4);
+
+    z-index: 2;
+    pointer-events: none;
+}
+
+.bank-card-icons{
+  @apply flex size-full items-end
+  flex-col justify-between rounded-r-[20px]
+  py-5 pr-5;
+}
+
+  
+
 }
 
 
@@ -136,6 +306,7 @@
   /* الخلفية الخضراء */
   --color-secondary: #069370;
   --color-accent: #20C997;
+  --color-text-sidebar: #058562;
 
   /* Background Colors */
   --color-background: #FFFFFF;
@@ -155,4 +326,23 @@
   --breakpoint-2xl: 1536px;
 
   --header-box-background: #04775C;
+
+  --background-image-gradient-background: url('/icons/gradient-background.jpg');
+  --background-image-bank-gradient: linear-gradient(120deg, #063F35 0%, #087A5B 55%, #20C997 100%);
+  --background-image-bank-green-gradient: linear-gradient(120deg, #042F29 0%, #075C48 50%, #0B8F6B 100%);
+
+  /* horizontal(-) vertical(|) blur(بيخلّي الظل ناعم ومموّه) spread(بيقلّص مساحة الظل) color */
+  --shadow-profile: 0px 12px 16px -4px rgba(16, 24, 40, 0.09),
+                    0px 4px 6px -2px rgba(16, 24, 40, 0.01);
+
+  --shadow-form: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+
+  --shadow-chart: 0px 1px 3px 0px rgba(16, 24, 40, 0.10),
+                  0px 1px 2px 0px rgba(16, 24, 40, 0.06);
+
+  --shadow-credit-card: 0px 20px 40px -12px rgba(4, 47, 41, 0.28),
+                        0px 8px 16px -6px rgba(0, 0, 0, 0.12);;
+  
+  
+
 }  
